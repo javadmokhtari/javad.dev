@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Row, Container} from 'react-bootstrap';
 
 export default class Layout extends Component {
     constructor(props) {
@@ -7,10 +8,14 @@ export default class Layout extends Component {
     }
     render() {
         return (
-            <div>
-                Test
-                {this.props.children}
-            </div>
+            <Container>
+                <Row>
+                    Button goes here
+                </Row>
+                <Row>
+                    {this.props.children}
+                </Row>
+            </Container>
         )
     }
 }
