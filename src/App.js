@@ -8,9 +8,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
 import About from './components/About'
 import Blog from './components/Blog'
+import './home.css'
 
 function App(props) {
 
@@ -20,11 +20,14 @@ function App(props) {
       <Router>
       {props.lng === "English" ? (
           <>
-          <ul className="menu">
-              <li><Link to="/about">درباره من</Link></li>
-              <li><Link to="/blog">وبلاگ</Link></li>
-          </ul>
           <Switch>
+          <Route path="/">
+            <h1>جواد مختاری کوشیار</h1>
+            <ul className="menu">
+                <li><Link to="/about">درباره من</Link></li>
+                <li><Link to="/blog">وبلاگ</Link></li>
+            </ul>
+          </Route>
           <Route path="/about">
             <About />
           </Route>
@@ -34,10 +37,23 @@ function App(props) {
         </Switch>
         </>
       ) : (
+        <>
+        <Switch>
+        <Route path="/">
+          <h1>Javad Mokhtari Koushyar</h1>
           <ul className="menu">
               <li><Link to="/about">About Me</Link></li>
               <li><Link to="/blog">Blog</Link></li>
           </ul>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/blog">
+          <Blog />
+        </Route>
+      </Switch>
+      </>
       )}
       </Router>
     </Layout>
