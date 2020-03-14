@@ -21,3 +21,6 @@
     margin-top: 30vh;
     color: #4f4e4e;
 }
+a:hover {
+    text-decoration: none !important;
+}

@@ -3,7 +3,10 @@ import {Row, Container, Col, Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import changeLanguage from '../redux/actions'
 import '../layout.css'
-
+import {
+    Link,
+    HashRouter as Router,
+  } from "react-router-dom";
 class Layout extends Component {
     constructor(props) {
         super(props)
@@ -37,7 +40,9 @@ class Layout extends Component {
                         <Button onClick={(e) => this.toggleLanguage(e)} variant="outline-dark">{this.props.lng}</Button>
                     </Col>
                     <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                    <Button variant="outline-danger">/</Button>
+                        <Router>
+                            <Link to="/"><Button variant="outline-danger">/</Button></Link>
+                        </Router>
                     </Col>
                 </Row>
                 <Row className={"main " + this.mainStyle()}>

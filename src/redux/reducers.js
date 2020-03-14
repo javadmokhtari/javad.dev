@@ -1,7 +1,7 @@
 import { CHANGE_LANGUAGE } from './actionTypes';
 
 const initialState = {
-    lng: "English"
+    lng: "فارسی"
 }
 function mySimpleReducer(state = initialState, action) {
     switch(action.type) {

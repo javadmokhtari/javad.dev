@@ -3,7 +3,7 @@ import './App.css';
 import Layout from './components/Layout';
 import { connect } from 'react-redux';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
@@ -17,40 +17,39 @@ function App(props) {
   console.log(props)
   return (
     <Layout>
-      <Router>
+      <Router basename='/'>
       {props.lng === "English" ? (
-          <>
+        <>
+          <h1>جواد مختاری کوشیار</h1>
+          <ul className="menu">
+              <li><Link to="/about">درباره من</Link></li>
+              <li><Link to="/email">ایمیل</Link></li>
+          </ul>
           <Switch>
-          <Route path="/">
-            <h1>جواد مختاری کوشیار</h1>
-            <ul className="menu">
-                <li><Link to="/about">درباره من</Link></li>
-                <li><Link to="/blog">وبلاگ</Link></li>
-            </ul>
-          </Route>
+            
           <Route path="/about">
-            <About />
+              <p>توسعه دهنده فرانت‌اند برنامه های تحت وب</p>              
           </Route>
-          <Route path="/blog">
-            <Blog />
+          <Route path="/email">
+            <p className="english">javadmokhtari (@) outlook (.) com</p>
+            <p className="english">me (@) javad (.) dev</p>
           </Route>
         </Switch>
-        </>
+        </>          
       ) : (
         <>
+        <h1>Javad Mokhtari Koushyar</h1>
+        <ul className="menu">
+            <li><Link to="/about">About Me</Link></li>
+            <li><Link to="/email">Email</Link></li>
+        </ul>
         <Switch>
-        <Route path="/">
-          <h1>Javad Mokhtari Koushyar</h1>
-          <ul className="menu">
-              <li><Link to="/about">About Me</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-          </ul>
-        </Route>
         <Route path="/about">
-          <About />
+          <p>Front-End Web Developer</p>
         </Route>
-        <Route path="/blog">
-          <Blog />
+        <Route path="/email">
+          <p>javadmokhtari (@) outlook (.) com</p>
+          <p>me (@) javad (.) dev</p>
         </Route>
       </Switch>
       </>
