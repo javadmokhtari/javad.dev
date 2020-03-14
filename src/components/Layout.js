@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import {Row, Container} from 'react-bootstrap';
+import {Row, Container, Col} from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { changeLanguage } from '../redux/actions'
 
-export default class Layout extends Component {
+class Layout extends Component {
     constructor(props) {
         super(props)
 
@@ -10,12 +12,20 @@ export default class Layout extends Component {
         return (
             <Container>
                 <Row>
-                    Button goes here
+                    <Col>Col1</Col>
+                    <Col>Col2</Col>
                 </Row>
                 <Row>
+                    <h1>My Name Goes Here</h1>
                     {this.props.children}
                 </Row>
             </Container>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    lng: state.lng
+  })
+  
+export default connect(mapStateToProps, { changeLanguage })(Layout)

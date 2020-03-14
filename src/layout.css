@@ -1,0 +1,23 @@
+@font-face {
+    font-family: VazirFont;
+    src: url('./fonts/Vazir-Medium.woff');
+  }
+
+.container {
+    margin-top: 6vh;
+    text-align: center;
+}
+
+.persian {
+    font-family: VazirFont;
+}
+.english {
+    font-family: 'Ubuntu Mono', monospace;
+}
+.main {
+    display: block !important;
+    margin: auto;
+    text-align: center;
+    margin-top: 30vh;
+    color: #4f4e4e;
+}
